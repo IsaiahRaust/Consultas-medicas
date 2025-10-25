@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# DB local
+*.db
+*.sqlite3
+*.db-wal
+*.db-shm
+*.db-journal
+
+# Entornos
+.venv/
+env/
+
+# VSCode
+.vscode/
