@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Consultas Médicas — Front</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Consultas Médicas — Front</h1>
+    <div class="api-box">
+      <label>API Base</label>
+      <input id="apiBase" placeholder="http://127.0.0.1:8000" />
+      <button id="btnSaveApi">Guardar</button>
+      <span id="health" class="badge">Comprobando…</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="tabs">
+      <button data-tab="patients" class="active">Pacientes</button>
+      <button data-tab="doctors">Doctores</button>
+      <button data-tab="appointments">Citas</button>
+      <button data-tab="list">Lista de citas</button>
+    </nav>
+
+    <!-- Pacientes -->
+    <section data-panel="patients">
+      <h2>Crear Paciente</h2>
+      <form id="formPatient" class="card grid2">
+        <div>
+          <label>Nombre</label>
+          <input name="name" placeholder="Ej. Ana María Rojas" required />
+        </div>
+        <div>
+          <label>Email (opcional)</label>
+          <input name="email" type="email" placeholder="ana@example.com" />
+        </div>
+        <button class="primary">Guardar paciente</button>
+        <div id="pStatus" class="status"></div>
+      </form>
+    </section>
+
+    <!-- Doctores -->
+    <section data-panel="doctors" hidden>
+      <h2>Crear Doctor</h2>
+      <form id="formDoctor" class="card grid2">
+        <div>
+          <label>Nombre</label>
+          <input name="name" placeholder="Ej. Dr. Carlos Mora" required />
+        </div>
+        <div>
+          <label>Especialidad</label>
+          <input name="specialty" placeholder="Ej. Medicina General" />
+        </div>
+        <button class="primary">Guardar doctor</button>
+        <div id="dStatus" class="status"></div>
+      </form>
+    </section>
+
+    <!-- Citas -->
+    <section data-panel="appointments" hidden>
+      <h2>Crear Cita</h2>
+      <form id="formAppt" class="card grid2">
+        <div>
+          <label>ID Paciente</label>
+          <input name="patient_id" type="number" placeholder="Ej. 1" required />
+        </div>
+        <div>
+          <label>ID Doctor</label>
+          <input name="doctor_id" type="number" placeholder="Ej. 1" required />
+        </div>
+        <div>
+          <label>Inicio (ISO)</label>
+          <input name="start_at" placeholder="2025-11-01T14:30:00" required />
+        </div>
+        <div>
+          <label>Duración (min)</label>
+          <input name="duration_min" type="number" min="10" max="180" value="30" />
+        </div>
+        <div class="full">
+          <label>Motivo (opcional)</label>
+          <textarea name="reason" placeholder="Descripción breve…"></textarea>
+        </div>
+        <button class="primary">Guardar cita</button>
+        <div id="aStatus" class="status"></div>
+      </form>
+      <p class="hint">Tip: crea primero un paciente y un doctor. La fecha va en formato ISO.</p>
+    </section>
+
+    <!-- Lista -->
+    <section data-panel="list" hidden>
+      <h2>Lista de Citas</h2>
+      <div class="card row">
+        <input id="fDoctor" type="number" placeholder="Filtrar doctor_id" />
+        <input id="fPatient" type="number" placeholder="Filtrar patient_id" />
+        <button id="btnLoad" class="primary">Cargar</button>
+        <button id="btnClear">Limpiar</button>
+        <span id="lStatus" class="status"></span>
+      </div>
+      <ul id="list" class="list"></ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    Si abres estos archivos como <code>file://</code>, usa un servidor local para evitar bloqueos CORS.
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

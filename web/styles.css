@@ -1,0 +1,30 @@
+:root{
+  --bg:#0a0f1f; --panel:#0f172a; --card:#0b142a; --text:#eaf0ff;
+  --muted:#aab3c7; --border:#223053; --brand:#6aa6ff; --ok:#38b000; --err:#ff4d6d;
+}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#0a0f1f,#0b1020 40%,#0a0f1f);color:var(--text);}
+.topbar{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);background:rgba(15,23,42,.6);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+.topbar h1{margin:0;font-size:18px}
+.api-box{display:flex;gap:8px;align-items:center}
+.api-box input{width:260px;padding:7px 8px;border-radius:8px;border:1px solid var(--border);background:#0b142a;color:var(--text)}
+.badge{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:999px;padding:4px 8px;background:#0d1730}
+.wrap{max-width:1000px;margin:0 auto;padding:18px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tabs button{padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--muted);cursor:pointer}
+.tabs button.active{color:var(--text);border-color:var(--brand);outline:1px solid rgba(106,166,255,.25)}
+.card{border:1px solid var(--border);border-radius:14px;background:linear-gradient(180deg,#101832,#0d142b);padding:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid2 .full{grid-column:1 / -1}
+label{font-size:12px;color:var(--muted)}
+input,textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:#0b142a;color:var(--text)}
+textarea{min-height:80px;resize:vertical}
+button{padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:#1b2647;color:var(--text);cursor:pointer}
+button.primary{background:var(--brand);color:#0b1020;border-color:#4a7edb;font-weight:600}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.status{font-size:13px;color:var(--muted)}
+.status.ok{color:var(--ok)} .status.err{color:var(--err)}
+.list{margin-top:10px;border-top:1px dashed var(--border)}
+.list li{padding:10px 0;border-bottom:1px dashed var(--border);display:flex;justify-content:space-between;gap:12px;align-items:center}
+.hint{font-size:12px;color:var(--muted);margin-top:8px}
+.foot{max-width:1000px;margin:0 auto;padding:8px 18px;color:var(--muted);font-size:12px;text-align:center}
+@media (max-width:860px){.grid2{grid-template-columns:1fr}}
